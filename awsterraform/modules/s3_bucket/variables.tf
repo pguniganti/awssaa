@@ -3,15 +3,8 @@ variable "bucket_name" {
   type        = string
 }
 
-variable "acl" {
-  description = "The ACL for the S3 bucket"
-  type        = string
-  default     = "private"
-}
-
 variable "tags" {
-  description = "A map of tags to assign to the bucket"
+  description = "Tags for the S3 bucket"
   type        = map(string)
-  default     = {}
 }
 

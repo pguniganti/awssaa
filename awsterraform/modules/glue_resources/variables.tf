@@ -1,23 +1,6 @@
 variable "region" {
   description = "The AWS region to deploy resources"
   type        = string
-  default     = "us-east-1"
-}
-
-variable "log_group_name" {
-  description = "The name of the CloudWatch Log Group"
-  type        = string
-}
-
-variable "log_stream_name" {
-  description = "The name of the CloudWatch Log Stream"
-  type        = string
-}
-
-variable "retention_in_days" {
-  description = "The number of days to retain log events"
-  type        = number
-  default     = 7
 }
 
 variable "database_name" {
@@ -38,9 +21,4 @@ variable "s3_path" {
 variable "role_name" {
   description = "The name of the IAM Role for Glue"
   type        = string
-}
-
-variable "tags" {
-  description = "Tags for the resources"
-  type        = map(string)
 }
