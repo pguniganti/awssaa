@@ -1,10 +1,10 @@
-variable "bucket_name" {
-  description = "The name of the S3 bucket"
-  type        = string
+variable "bucket_names" {
+  description = "List of S3 bucket names"
+  type        = list(string)
+
 }
 
 variable "tags" {
-  description = "Tags for the S3 bucket"
+  description = "Tags for the S3 buckets"
   type        = map(string)
 }
-

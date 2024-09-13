@@ -1,4 +1,3 @@
-output "bucket_id" {
-  description = "The ID of the S3 bucket"
-  value       = aws_s3_bucket.this.id
+output "bucket_ids" {
+  value = [for i in aws_s3_bucket.s3_bucket : i.id]
 }
