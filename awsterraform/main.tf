@@ -11,6 +11,16 @@ terraform {
   }
 }
 
+resource "aws_instance" "nat_instance" {
+  ami           = "ami-0ebfd941bbafe70c6" # Replace with your desired AMI ID
+  instance_type = "t2.micro"
+  subnet_id     = var.public_subnet_id
+
+  tags = {
+    Name = "NAT Instance"
+  }
+}
+
 module "cloudwatch_logs" {
   source            = "./modules/cloudwatch_logs"
   log_group_name    = var.log_group_name
@@ -40,6 +50,9 @@ module "eks_cluster" {
   max_size            = var.max_size
   min_size            = var.min_size
   instance_types      = var.instance_types
+  public_subnet_id    = var.public_subnet_id
+
+  depends_on = [aws_instance.nat_instance]
 }
 
 provider "kubernetes" {

@@ -42,3 +42,8 @@ variable "instance_types" {
   description = "A list of instance types for the node group"
   type        = list(string)
 }
+variable "public_subnet_id" {
+  description = "The ID of the public subnet"
+  type        = string
+}
+
